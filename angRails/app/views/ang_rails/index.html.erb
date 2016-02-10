@@ -1,17 +1,26 @@
 
-<div class="header">
+
+
+<div class="header" class="md-block" flex-gt-sm>
     <h1>This is my first Ruby on Rails project</h1>
     <p>I created it with Angularjs and angular material!!</p>
 </div>
 
 <div >
-    <form">
-        <input type="text" ng-model="newName.name"></input>
-        <button ng-click="addEntry()">Add</button>
+    <form>
+    <md-input-container class="md-block" flex-gt-sm>
+        <label>Name</label>
+        <input ng-model="newName.name" />
+        <div class="hint" ng-if="showHints">Tell us what we should call you!</div>
+    </md-input-container>
+    <md-button class="md-raised" ng-click="addEntry()">Add Entry</md-button>
     </form>
 
-    <ul>
-        <li ng-repeat="items in entries"> {{items.name}} </li>
-    </ul>
+    <md-list>
+        <md-subheader> <h2>Attendance</h2></md-subheader>
+        <md-list-item class="md-3-line" ng-repeat="items in entries">
+            <h3>{{items.name}}</h3>
+        </md-list-item>
+    </md-list>
 
 </div>

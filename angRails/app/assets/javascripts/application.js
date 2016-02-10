@@ -15,4 +15,6 @@
 //= require angular
 //= require angular-resource
 //= require angular-material
+//= require angular-animate
+//= require angular-aria
 //= require_tree .

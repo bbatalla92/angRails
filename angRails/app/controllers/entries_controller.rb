@@ -1,5 +1,6 @@
 class EntriesController < ApplicationController
     respond_to :json
+    protect_from_forgery
 
     def index
         respond_with Entry.all
@@ -10,7 +11,9 @@ class EntriesController < ApplicationController
     end
 
     def create
-        respond_with Entry.create(params[:entry])
+        @entry = Entry.new(entry_params)
+        @entry.save
+        respond_with(@entry)
     end
 
     def update
@@ -20,4 +23,10 @@ class EntriesController < ApplicationController
     def destroy
         respond_with Entry.destroy(params[:id])
     end
+
+
+    def entry_params
+      params.require(:entry).permit(:name)
+    end
+
 end

@@ -2,7 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-@app = angular.module("angRails",["ngResource"]);
+@app = angular.module("angRails",["ngResource", "ngMaterial", "ngAnimate", "ngAria"]);
 
 
 @mainCTRL = ["$scope", "$resource", ($scope, $resource) ->
@@ -11,8 +11,18 @@
 
   $scope.newName = "";
 
+
+
   $scope.entries = Entry.query();
 
+
+  ###deleteNulls = ->
+    array = Entry.query();
+    for i in array
+    console.log(i.name );
+    if i.name is null
+      Entry.delete(i.id);
+    return Entry.query();###
 
   $scope.addEntry = ->
 
@@ -23,6 +33,5 @@
       $scope.newName = "";
 
 ]
-
 
 app.controller("mainCTRL", mainCTRL);

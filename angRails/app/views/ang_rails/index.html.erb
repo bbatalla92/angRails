@@ -1,0 +1,17 @@
+
+<div class="header">
+    <h1>This is my first Ruby on Rails project</h1>
+    <p>I created it with Angularjs and angular material!!</p>
+</div>
+
+<div >
+    <form">
+        <input type="text" ng-model="newName.name"></input>
+        <button ng-click="addEntry()">Add</button>
+    </form>
+
+    <ul>
+        <li ng-repeat="items in entries"> {{items.name}} </li>
+    </ul>
+
+</div>

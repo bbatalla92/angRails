@@ -1,0 +1,2 @@
+module AngRailsHelper
+end

@@ -3,24 +3,40 @@
 
 <div class="header" class="md-block" flex-gt-sm>
     <h1>This is my first Ruby on Rails project</h1>
-    <p>I created it with Angularjs and angular material!!</p>
+    <h3>I created this page with Angularjs and angular material!!</h3>
+    <h4>The next page gives you the option to sort the assignees!!</h4>
 </div>
 
-<div >
-    <form>
-    <md-input-container class="md-block" flex-gt-sm>
-        <label>Name</label>
-        <input ng-model="newName.name" />
-        <div class="hint" ng-if="showHints">Tell us what we should call you!</div>
-    </md-input-container>
-    <md-button class="md-raised" ng-click="addEntry()">Add Entry</md-button>
+<div>
+
+    <form >
+        <div layout="column"  layout-xs="column" >
+            <div flex>
+                <md-input-container class="md-block">
+                    <label>Name</label>
+                    <input class="textInput" ng-model="newGuest.name" />
+                    <div class="hint" ng-if="showHints">Tell us what we should call you!</div>
+                </md-input-container>
+             </div>
+            <div flex>
+              <md-button class="md-raised" ng-click="addEntry()">Add Entry</md-button>
+            </div>
+        </div>
     </form>
 
-    <md-list>
+    <div class="registeredGuestList">
+    <md-list >
         <md-subheader> <h2>Attendance</h2></md-subheader>
-        <md-list-item class="md-3-line" ng-repeat="items in entries">
-            <h3>{{items.name}}</h3>
+        <md-divider hide-xs></md-divider>
+        <md-list-item layout-align="space-between center" layout-xs="column" class="listItem" ng-repeat="items in entries">
+            <span flex><h3>{{items.name}}</h3> </span>
+            <span flex> <h4>{{items.createdAt}}</h4></span>
+            <md-divider hide-xs></md-divider>
         </md-list-item>
     </md-list>
-
+    </div>
 </div>
+
+<md-sidenav class="md-sidenav-right md-whiteframe-z2" md-is-locked-open="$mdMedia('gt-sm')">
+    <filter-menu></filter-menu>
+</md-sidenav>

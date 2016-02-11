@@ -26,7 +26,7 @@ class EntriesController < ApplicationController
 
 
     def entry_params
-      params.require(:entry).permit(:name)
+      params.require(:entry).permit(:name, :createdAt)
     end
 
 end

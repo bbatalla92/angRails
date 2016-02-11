@@ -13,14 +13,13 @@ app.factory 'Entry', ['$resource', ($resource) ->
 
 
 
-@mainCTRL = ["$scope", 'Entry', ($scope, Entry) ->
+@mainCTRL = ["$scope", 'Entry','$resource', ($scope, Entry, $resource) ->
 
   ###Entry = $resource("/entries/:id", {id: "@id"}, {update: {method: "PUT"}})###
+  changePage = "";
 
   $scope.newGuest = "";
   $scope.entries = Entry.query();
-
-
 
   reformatDate = ->
     today = new Date
@@ -36,11 +35,6 @@ app.factory 'Entry', ['$resource', ($resource) ->
     today.toString()
 
 
-  deleteNulls = ->
-    console.log("hi")
-    for items in $scope.entries
-      console.log(items.name)
-
   $scope.addEntry = ->
     unless $scope.newGuest is ""
       $scope.newGuest.createdAt = reformatDate();
@@ -50,12 +44,17 @@ app.factory 'Entry', ['$resource', ($resource) ->
       console.log(JSON.stringify($scope.newGuest));
       $scope.newGuest = "";
 
+  $scope.goHome = ->
+    console.log("Home Page");
+    #$resource("/secondPage");
+
+  $scope.goSecondPage = ->
+    console.log("Second Page");
 
 
 
   # Functions above and instantiations up top, logic below
 
-  deleteNulls()
 ]
 
 app.controller("mainCTRL", mainCTRL);

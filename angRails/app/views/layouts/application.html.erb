@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="angRails">
+<html ng-app="angRails" ng-controller="mainCTRL">
 <head>
   <title>AngRails</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -7,15 +7,38 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div class="container" ng-controller="mainCTRL">
-<md-toolbar>
-      <div class="md-toolbar-tools">
+
+
+<md-toolbar class="md-primary md-hue-2 md-whiteframe-z1 layout-padding">
+    <div class="md-toolbar-tools">
         <h2>
-          <span>My App</span>
+            <span>My App</span>
         </h2>
-      </div>
-    </md-toolbar>
-<%= yield %>
-</div>
+    </div>
+</md-toolbar>
+<md-content layout="row" flex layout-fill >
+
+    <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+            <!-- Trigger element is a md-button with an icon -->
+            <md-menu-content>
+                <md-menu-item >
+                    <md-button>Home</md-button>
+                </md-menu-item>
+                <md-divider></md-divider>
+                <md-menu-item>
+                    <md-button>Second Page</md-button>
+                </md-menu-item>
+                <md-divider></md-divider>
+            </md-menu-content>
+
+    </md-sidenav>
+
+
+
+    <div class="container">
+    <%= yield %>
+    </div>
+
+</md-content>
 </body>
 </html>

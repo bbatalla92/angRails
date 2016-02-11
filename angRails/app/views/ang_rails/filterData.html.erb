@@ -1,0 +1,34 @@
+
+
+<div class="header" class="md-block" flex-gt-sm>
+    <h1>This is the second page</h1>
+    <h3>On this page you are able to sort the attendance list in any way you would like!</h3>
+    <h4>Its not really "any way", I have set up 4 filters for you to play with!</h4>
+</div>
+
+
+
+<div>
+    <div layout="row">
+
+        <md-button class="md-raised">Name</md-button>
+        <md-button class="md-raised">Date</md-button>
+
+    </div>
+    <div class="registeredGuestList">
+        <md-list >
+            <md-subheader> <h2>Attendance</h2></md-subheader>
+            <md-divider hide-xs></md-divider>
+            <md-list-item layout-align="space-between center" layout-xs="column" class="listItem" ng-repeat="items in entries | orderBy:'createdAt':true">
+                <span flex><h3>{{items.name}}</h3> </span>
+                <span flex> <h4>{{items.createdAt}}</h4></span>
+                <md-divider hide-xs></md-divider>
+            </md-list-item>
+        </md-list>
+    </div>
+</div>
+
+<br>
+<br>
+<br>
+

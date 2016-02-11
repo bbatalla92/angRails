@@ -3,13 +3,7 @@ Rails.application.routes.draw do
 
   root to: 'ang_rails#index'
 
-  get '/home', to: 'ang_rails#index'
-
-  get '/secondPage', to: 'ang_rails#filterData'
-
-
-
-
+  get '/filterData', to: 'ang_rails#filterData'
 
 end
 

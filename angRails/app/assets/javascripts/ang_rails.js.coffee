@@ -20,6 +20,12 @@ app.factory 'Entry', ['$resource', ($resource) ->
 
   $scope.newGuest = "";
   $scope.entries = Entry.query();
+  $scope.sortByElement = "createdAt";
+  $scope.sortReversed = true;
+  $scope.nameImageUP = null;
+  $scope.dateImageUP = true;
+  $scope.hideNameSortImages = true;
+
 
   reformatDate = ->
     today = new Date
@@ -50,6 +56,18 @@ app.factory 'Entry', ['$resource', ($resource) ->
 
   $scope.goSecondPage = ->
     console.log("Second Page");
+
+  $scope.filterName = ->
+    $scope.hideNameSortImages = false
+    $scope.sortByElement = "name";
+    $scope.sortReversed = !$scope.sortReversed
+    $scope.nameImageUP = !$scope.nameImageUP;
+
+  $scope.filterDate = ->
+    $scope.hideNameSortImages = true
+    $scope.sortByElement = "createdAt";
+    $scope.sortReversed = !$scope.sortReversed
+    $scope.dateImageUP = !$scope.dateImageUP;
 
 
 

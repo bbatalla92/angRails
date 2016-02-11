@@ -17,4 +17,7 @@
 //= require angular-material
 //= require angular-animate
 //= require angular-aria
+//= require angular-ui-router
+//= require angular-rails-templates
 //= require_tree .
+//= require_tree ../templates

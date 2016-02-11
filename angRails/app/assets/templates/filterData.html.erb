@@ -11,21 +11,12 @@
 
 <div layout-xs="column">
     <div class="filterButtons" layout="row" layout-align="space-between center" layout-xs="column">
-        <div ng-hide="hideNameSortImages">
-            <md-icon ng-show="nameImageUP"><%= image_tag('ic_arrow_drop_down_black_24px.svg')%></md-icon>
-            <md-icon ng-hide="nameImageUP"><%= image_tag('ic_arrow_drop_up_black_24px.svg')%></md-icon>
-        </div>
-        <md-button class="md-raised" flex ng-click="filterName()">
-                Name
-        </md-button>
 
-        <md-button class="md-raised" flex ng-click="filterDate()">
-            Date
+        <md-button class="md-raised" flex ng-click="filterName()">
+            <md-icon md-svg-icon="content: ic_arrow_drop_down_black_24px.svg"></md-icon>
+            Name
         </md-button>
-        <div ng-show="hideNameSortImages">
-            <md-icon ng-show="dateImageUP"><%= image_tag('ic_arrow_drop_down_black_24px.svg')%></md-icon>
-            <md-icon ng-hide="dateImageUP"><%= image_tag('ic_arrow_drop_up_black_24px.svg')%></md-icon>
-        </div>
+        <md-button class="md-raised" flex ng-click="filterDate()">Date</md-button>
 
     </div>
     <div class="registeredGuestList" >

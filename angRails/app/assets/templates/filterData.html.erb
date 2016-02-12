@@ -1,22 +1,31 @@
 
 
 <div class="header" class="md-block" flex-gt-sm>
-    <h1>This is the second page</h1>
+    <h1>Filter Data</h1>
     <h3>On this page you are able to sort the attendance list in any way you would like!</h3>
     <h4>Its not really "any way", I have set up 4 filters for you to play with!</h4>
 </div>
 
-        
+
 
 
 <div layout-xs="column">
     <div class="filterButtons" layout="row" layout-align="space-between center" layout-xs="column">
-
+        <div ng-hide="hideNameSortImages">
+            <md-icon ng-show="nameImageUP"><%= image_tag('ic_arrow_drop_down_black_24px.svg')%></md-icon>
+            <md-icon ng-hide="nameImageUP"><%= image_tag('ic_arrow_drop_up_black_24px.svg')%></md-icon>
+        </div>
         <md-button class="md-raised" flex ng-click="filterName()">
-            <md-icon md-svg-icon="content: ic_arrow_drop_down_black_24px.svg"></md-icon>
             Name
         </md-button>
-        <md-button class="md-raised" flex ng-click="filterDate()">Date</md-button>
+
+        <md-button class="md-raised" flex ng-click="filterDate()">
+            Date
+        </md-button>
+        <div ng-show="hideNameSortImages">
+            <md-icon ng-show="dateImageUP"><%= image_tag('ic_arrow_drop_down_black_24px.svg')%></md-icon>
+            <md-icon ng-hide="dateImageUP"><%= image_tag('ic_arrow_drop_up_black_24px.svg')%></md-icon>
+        </div>
 
     </div>
     <div class="registeredGuestList" >

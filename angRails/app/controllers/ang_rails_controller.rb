@@ -1,10 +1,10 @@
 class AngRailsController < ApplicationController
 
-  def index
-  end
+  #def index
+  #end
 
-  def filterData
-  end
+  #def filterData
+  #end
 
 
 end

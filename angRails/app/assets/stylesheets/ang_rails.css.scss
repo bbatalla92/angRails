@@ -7,15 +7,18 @@
   text-align: center;
   margin: auto;
 }
+.centerText{
+  text-align: center;
+}
 
-.header{
-
+.toolbar{
+  background: #02a8f3;
 }
 
 .registeredGuestList{
   margin: auto;
   width: 60%;
-  border: 1px solid #73AD21;
+  border: 1px solid #02a8f3;
   padding: 10px;
   text-align: center;
 }

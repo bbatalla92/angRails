@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   resources :entries, defaults: {format: :json}
 
-  root to: 'ang_rails#index'
+  root 'ang_rails#index'
 
-  get '/filterData', to: 'ang_rails#filterData'
+  get '*path' => 'ang_rails#index'
+
+ # get '/filterData', to: 'ang_rails#filterData'
 
 end
 

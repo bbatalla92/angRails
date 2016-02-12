@@ -1,44 +1,55 @@
 <!DOCTYPE html>
-<html ng-app="angRails" ng-controller="mainCTRL">
+<html >
 <head>
-  <title>AngRails</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+    <title>AngRails</title>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <%= csrf_meta_tags %>
 </head>
-<body>
+<body  ng-app="angRails" ng-controller="mainCTRL">
 <!-- ng-controller="mainCTRL"-->
+<div layout="column">
 
-<md-toolbar class="md-primary md-hue-2 md-whiteframe-z1 layout-padding">
+<md-toolbar class="toolbar md-whiteframe-z1 layout-padding">
     <div class="md-toolbar-tools">
         <h2>
-            <span>My App</span>
+            <span>Attendance Log</span>
         </h2>
+        <span flex></span>
+        <md-button class="md-icon-button" aria-label="Favorite" ng-click="navDrawOpen()" hide-gt-md>
+            <md-icon><%= image_tag('ic_menu_black_24px.svg')%></md-icon>
+        </md-button>
     </div>
 </md-toolbar>
+
 <md-content layout="row" flex layout-fill >
 
     <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
-            <!-- Trigger element is a md-button with an icon -->
-            <md-menu-content>
-                <md-menu-item >
-                    <md-button>Home</md-button>
-                </md-menu-item>
-                <md-divider></md-divider>
-                <md-menu-item>
-                    <md-button>Second Page</md-button>
-                </md-menu-item>
-                <md-divider></md-divider>
-            </md-menu-content>
+        <!-- Trigger element is a md-button with an icon -->
 
+
+
+
+        <md-button ui-sref-active="activeState" ui-sref="home" class="centerText">
+            <md-icon><%= image_tag('ic_home_black_24px.svg')%></md-icon>
+            Home
+        </md-button>
+        <md-divider></md-divider>
+        <md-button ui-sref-active="activeState" ui-sref="filterData" class="centerText">
+            <md-icon><%= image_tag('ic_filter_list_black_24px.svg')%></md-icon>
+            Filter Data
+        </md-button>
+        <md-divider></md-divider>
     </md-sidenav>
 
 
 
     <div class="container">
-    <%= yield %>
+        <%= yield %>
     </div>
 
 </md-content>
+</div>
+
 </body>
 </html>

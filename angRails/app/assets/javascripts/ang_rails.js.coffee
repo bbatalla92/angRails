@@ -1,8 +1,9 @@
+###
 # Place all the behaviors and hooks related to the matching controller here.
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-app = angular.module("angRails",["ngResource", "ngMaterial", "ngAnimate", "ngAria"]);
+app = angular.module("angRails",["ngResource", "ngMaterial", "ngAnimate", "ngAria",'ui.router','templates']);
 
 app.factory 'Entry', ['$resource', ($resource) ->
 
@@ -11,12 +12,30 @@ app.factory 'Entry', ['$resource', ($resource) ->
 ]
 
 
+app.config(['$stateProvider',"$urlRouterProvider","$locationProvider" , ($stateProvider, $urlRouterProvider, $locationProvider) ->
+
+      $stateProvider.state( 'home',
+        url: '/',
+        templateURL: "home.html",
+        controller: "mainCTRL"
+      ).state('filterData',
+        url: '/filterData',
+        templateURL: "filterData.html",
+        controller: "mainCTRL"
+      );
+
+      $urlRouterProvider.otherwise '/'
+
+
+      $locationProvider.html5Mode
+        enabled: true
+        requireBase: false
+  ])
+
 
 
 @mainCTRL = ["$scope", 'Entry','$resource', ($scope, Entry, $resource) ->
 
-  ###Entry = $resource("/entries/:id", {id: "@id"}, {update: {method: "PUT"}})###
-  changePage = "";
 
   $scope.newGuest = "";
   $scope.entries = Entry.query();
@@ -26,6 +45,18 @@ app.factory 'Entry', ['$resource', ($resource) ->
   $scope.dateImageUP = true;
   $scope.hideNameSortImages = true;
 
+  $scope.menu = [
+     {
+       'title': 'Home',
+       'state': 'home'
+     },
+     {
+       'title': 'Filter Data',
+       'state': 'filterData'
+     }
+   ];
+
+  console.log("Reloaded");
 
   reformatDate = ->
     today = new Date
@@ -75,5 +106,7 @@ app.factory 'Entry', ['$resource', ($resource) ->
 
 ]
 
+
 app.controller("mainCTRL", mainCTRL);
 
+###
